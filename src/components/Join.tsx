@@ -94,7 +94,7 @@ const Join = () => {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="state" className="block text-gray-300 mb-2">City</label>
+              <label htmlFor="state" className="block text-gray-300 mb-2">State</label>
               <input
                 type="text"
                 id="state"
