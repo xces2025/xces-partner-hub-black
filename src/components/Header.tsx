@@ -60,42 +60,18 @@ const Header = () => {
         <div className="md:hidden bg-xces-dark border-t border-gray-800 animate-accordion-down">
           <div className="container mx-auto px-4 py-4">
             <nav className="flex flex-col space-y-4">
-              <a 
-                href="#why-xces" 
-                className="text-gray-300 hover:text-white transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Why XCES
-              </a>
-              <a 
-                href="#benefits" 
-                className="text-gray-300 hover:text-white transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Benefits
-              </a>
-              <a 
-                href="#payout" 
-                className="text-gray-300 hover:text-white transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Payouts
-              </a>
-              <a 
-                href="#subscription" 
-                className="text-gray-300 hover:text-white transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Subscription
-              </a>
-              <a 
-                href="#join-us" 
-                className="text-gray-300 hover:text-white transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Join Us
-              </a>
-              <div className="pt-2">
+              <Link to="/" className="text-gray-300 hover:text-white transition-colors">
+                  Home
+                </Link>
+                <Link to="/delivery-partner" className="text-gray-300 hover:text-white transition-colors">
+                  Delivery Partner
+                </Link>
+                <Link to="/food-partner" className="text-gray-300 hover:text-white transition-colors">
+                  Food Partner
+                </Link>
+                <Link to="/about" className="text-gray-300 hover:text-white transition-colors">
+                  About
+                </Link>              <div className="pt-2">
                 <a 
                   href="#faq" 
                   className="xces-btn w-full text-center"
