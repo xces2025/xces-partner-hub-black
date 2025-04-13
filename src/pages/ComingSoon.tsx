@@ -6,7 +6,7 @@ const ComingSoon = () => {
     <div className="min-h-screen bg-xces-black text-white flex flex-col justify-center items-center p-4">
       <div className="text-center max-w-md">
         <img 
-          src="public\uploads\nvavlogo.png" 
+          src="upload/nvalogo.png" 
           alt="XCES Logo" 
           className="h-16 mx-auto mb-6"
         />
