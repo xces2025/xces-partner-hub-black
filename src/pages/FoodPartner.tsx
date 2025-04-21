@@ -1,7 +1,65 @@
-
 import React, { useState } from "react";
 import FoodHero from "@/components/FoodHero";
 import { Check, DollarSign, Users, FileText, CalendarCheck } from "lucide-react";
+
+const benefitList = [
+  {
+    title: "Access to Local Customer Data",
+    description: "Know who’s ordering, when, and what they love.",
+    icon: "users",
+  },
+  {
+    title: "Dedicated Sections",
+    description: "Separate spaces for Restaurants and Home Chefs to shine.",
+    icon: "list-check",
+  },
+  {
+    title: "Free Basic Packaging Material",
+    description: "We’ve got your first packaging needs covered.",
+    icon: "box",
+  },
+  {
+    title: "Ad Options that Work for You",
+    description: "Promote your food — without paying high per click commissions.",
+    icon: "badge-percent",
+  },
+  {
+    title: "Your Own Business Growth Team",
+    description: "We help you grow, not just list.",
+    icon: "rocket",
+  },
+];
+
+// Lucide-react icons map—for easy extension (only allowed ones listed here)
+import {
+  Users,
+  ListCheck,
+  BadgePercent,
+  Rocket,
+  // Not allowed: import Box,
+} from "lucide-react";
+
+// Fallback icon for Free Basic Packaging Material
+const BoxIcon = () => (
+  <svg
+    className="w-8 h-8 text-xces-blue"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+  >
+    <rect x="3" y="7" width="18" height="13" rx="2" />
+    <path d="M16 3v4M8 3v4M3 11h18" />
+  </svg>
+);
+
+const iconComponents: Record<string, React.ReactNode> = {
+  users: <Users className="w-8 h-8 text-xces-blue" />,
+  "list-check": <ListCheck className="w-8 h-8 text-xces-blue" />,
+  "badge-percent": <BadgePercent className="w-8 h-8 text-xces-blue" />,
+  rocket: <Rocket className="w-8 h-8 text-xces-blue" />,
+  box: <BoxIcon />,
+};
 
 const WhyXCES = () => (
   <section id="why-xces" className="section-padding bg-gradient-to-b from-xces-black to-xces-dark">
@@ -40,36 +98,17 @@ const WhatYouGet = () => (
       <h2 className="text-3xl md:text-4xl font-bold mb-6">
         What You Get with <span className="xces-gradient-text">XCES</span>
       </h2>
-      <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-        <ul className="space-y-6 text-lg">
-          <li>
-            <span className="font-semibold text-xces-blue">1. Access to Local Customer Data</span>
-            <br />
-            <span className="text-gray-300">Know who’s ordering, when, and what they love.</span>
-          </li>
-          <li>
-            <span className="font-semibold text-xces-blue">2. Dedicated Sections</span>
-            <br />
-            <span className="text-gray-300">Separate spaces for Restaurants and Home Chefs to shine.</span>
-          </li>
-          <li>
-            <span className="font-semibold text-xces-blue">3. Free Basic Packaging Material</span>
-            <br />
-            <span className="text-gray-300">We’ve got your first packaging needs covered.</span>
-          </li>
-        </ul>
-        <ul className="space-y-6 text-lg">
-          <li>
-            <span className="font-semibold text-xces-blue">4. Ad Options that Work for You</span>
-            <br />
-            <span className="text-gray-300">Promote your food — without paying high per click commissions.</span>
-          </li>
-          <li>
-            <span className="font-semibold text-xces-blue">5. Your Own Business Growth Team</span>
-            <br />
-            <span className="text-gray-300">We help you grow, not just list.</span>
-          </li>
-        </ul>
+      <div className="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+        {benefitList.map((item, idx) => (
+          <div
+            key={item.title}
+            className="bg-gradient-to-tr from-xces-dark to-xces-blue/5 border border-xces-blue/20 rounded-2xl shadow-glow p-6 flex flex-col items-center text-center hover:shadow-glow-lg transition-all duration-300 animate-fade-in"
+          >
+            <div className="mb-3">{iconComponents[item.icon]}</div>
+            <h3 className="font-bold text-lg mb-1 text-white">{idx + 1}. {item.title}</h3>
+            <p className="text-gray-300 text-base">{item.description}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
