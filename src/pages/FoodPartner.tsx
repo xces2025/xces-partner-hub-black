@@ -1,11 +1,21 @@
+
 import React, { useState } from "react";
 import FoodHero from "@/components/FoodHero";
-import { Check, DollarSign, Users, FileText, CalendarCheck } from "lucide-react";
+import { 
+  Check, 
+  DollarSign, 
+  Users, 
+  FileText, 
+  CalendarCheck,
+  ListCheck,
+  BadgePercent,
+  Rocket
+} from "lucide-react";
 
 const benefitList = [
   {
     title: "Access to Local Customer Data",
-    description: "Know who’s ordering, when, and what they love.",
+    description: "Know who's ordering, when, and what they love.",
     icon: "users",
   },
   {
@@ -15,7 +25,7 @@ const benefitList = [
   },
   {
     title: "Free Basic Packaging Material",
-    description: "We’ve got your first packaging needs covered.",
+    description: "We've got your first packaging needs covered.",
     icon: "box",
   },
   {
@@ -29,15 +39,6 @@ const benefitList = [
     icon: "rocket",
   },
 ];
-
-// Lucide-react icons map—for easy extension (only allowed ones listed here)
-import {
-  Users,
-  ListCheck,
-  BadgePercent,
-  Rocket,
-  // Not allowed: import Box,
-} from "lucide-react";
 
 // Fallback icon for Free Basic Packaging Material
 const BoxIcon = () => (
@@ -350,7 +351,7 @@ const faqs = [
   },
   {
     question: "Can home chefs join?",
-    answer: "Absolutely! Register under our Mom’s Magic section."
+    answer: "Absolutely! Register under our Mom's Magic section."
   },
   {
     question: "Do you provide packaging material?",
