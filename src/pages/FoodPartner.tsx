@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import FoodHero from "@/components/FoodHero";
 import { 
@@ -11,6 +10,8 @@ import {
   BadgePercent,
   Rocket
 } from "lucide-react";
+import PricingExplainer from "@/components/PricingExplainer";
+import SavingsCalculator from "@/components/SavingsCalculator";
 
 const benefitList = [
   {
@@ -40,7 +41,6 @@ const benefitList = [
   },
 ];
 
-// Fallback icon for Free Basic Packaging Material
 const BoxIcon = () => (
   <svg
     className="w-8 h-8 text-xces-blue"
@@ -131,76 +131,6 @@ const WhoCanJoin = () => (
     </div>
   </section>
 );
-
-const Pricing = () => (
-  <section className="section-padding bg-xces-black">
-    <div className="container mx-auto px-4 max-w-3xl text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6">How Our <span className="xces-gradient-text">Pricing</span> Works</h2>
-      <div className="bg-xces-dark px-6 py-7 rounded-2xl border border-gray-800 shadow-glow mb-8">
-        <div className="text-left text-lg mb-6">
-          <div className="mb-5">
-            <span className="block font-semibold text-xces-blue mb-2">We charge 0% commission on food. Here’s how it benefits you:</span>
-            <p>You sell a pizza for <span className="font-bold">₹100</span></p>
-            <p>On Zomato/Swiggy, you’d mark it up to <span className="font-bold">₹140–₹150</span> to cover their commission.</p>
-            <p>On XCES, you list it at <span className="font-bold">₹100</span> — and we show the customer <span className="font-bold">₹112</span></p>
-            <p>That extra <span className="font-bold">₹12</span>? It's our commission from customer— <span className="font-bold">not your cost</span>.</p>
-          </div>
-          <div className="mt-8">
-            <span className="text-xces-blue font-bold">Result?</span><br />
-            <span>You earn your full <span className="font-bold">₹100</span></span><br />
-            <span>Customers save money<br />Everyone wins.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-const SavingsCalculator = () => {
-  const [revenue, setRevenue] = useState<number | "">("");
-
-  const format = (n: number | "") => n === "" ? "" : n.toLocaleString("en-IN");
-
-  const competitorLoss = revenue === "" ? "" : Math.floor((+revenue) * 0.3);
-  const xcesGain = revenue === "" ? "" : Math.floor((+revenue) * 0.3);
-
-  return (
-    <section className="section-padding bg-gradient-to-b from-xces-dark to-xces-black">
-      <div className="container mx-auto px-4 max-w-lg text-center">
-        <h3 className="text-2xl font-bold mb-5">See the Savings: <span className="xces-gradient-text">XCES vs Others</span></h3>
-        <div className="bg-xces-dark px-6 py-8 rounded-2xl border border-gray-800 shadow-glow mb-8">
-          <label htmlFor="revenue" className="block text-lg font-medium text-gray-200 mb-3">Enter your monthly online revenue:</label>
-          <input
-            id="revenue"
-            type="number"
-            min={0}
-            placeholder="e.g., 100000"
-            className="w-full bg-xces-black border border-xces-blue/40 rounded-lg px-4 py-2 text-xl font-medium text-white mb-6 focus:outline-none focus:ring-2 focus:ring-xces-blue"
-            value={revenue}
-            onChange={e => {
-              const v = e.target.value;
-              setRevenue(v === "" ? "" : Number(v));
-            }}
-          />
-          <div className="flex flex-col gap-3 text-base sm:text-lg">
-            <div className="bg-xces-blue/10 rounded p-3 flex justify-between items-center font-semibold">
-              <span>Other Platforms: -30% (commission loss)</span>
-              <span className="text-red-500 font-bold">
-                {revenue !== "" ? `₹${format(competitorLoss as number)}` : "--"}
-              </span>
-            </div>
-            <div className="bg-xces-blue/10 rounded p-3 flex justify-between items-center font-semibold">
-              <span>With XCES: +30% (commission saved)</span>
-              <span className="text-green-400 font-bold">
-                {revenue !== "" ? `₹${format(xcesGain as number)}` : "--"}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const Subscription = () => (
   <section className="py-16 px-4 bg-xces-black relative">
@@ -400,8 +330,7 @@ const FoodPartner = () => (
     <WhyXCES />
     <WhatYouGet />
     <WhoCanJoin />
-    <Pricing />
-    <SavingsCalculator />
+    <PricingExplainer />
     <Subscription />
     <SignupForm />
     <FAQSection />
