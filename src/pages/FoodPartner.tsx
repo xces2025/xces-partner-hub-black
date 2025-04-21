@@ -1,30 +1,407 @@
 
-import Header from "@/components/Header";
+import React, { useState } from "react";
 import FoodHero from "@/components/FoodHero";
-import HowItWorks from "@/components/HowItWorks";
-import WhyXces from "@/components/WhyXces";
-import Benefits from "@/components/Benefits";
-import Payout from "@/components/Payout";
-import Subscription from "@/components/Subscription";
-import FAQ from "@/components/FAQ";
-import Join from "@/components/Join";
-import Footer from "@/components/Footer";
+import { Check, DollarSign, Users, FileText, CalendarCheck } from "lucide-react";
 
-const FoodPartner = () => {
-  return (
-    <div className="min-h-screen bg-xces-black text-white overflow-x-hidden">
-      <Header />
-      <FoodHero />
-      <WhyXces />
-      <HowItWorks />
-      <Benefits />
-      <Payout />
-      <Subscription />
-      <Join />
-      <FAQ />
-      <Footer />
+const WhyXCES = () => (
+  <section id="why-xces" className="section-padding bg-gradient-to-b from-xces-black to-xces-dark">
+    <div className="container mx-auto px-4 max-w-3xl text-center">
+      <h2 className="text-3xl md:text-4xl font-bold mb-5">
+        Why <span className="xces-gradient-text">XCES?</span>
+      </h2>
+      <p className="text-lg text-gray-300 mb-8">
+        XCES is a food delivery platform built for food entrepreneurs — from home chefs to restaurants, food trucks to cloud kitchens.<br /><br />
+        <span className="block font-semibold text-xces-blue mt-2 mb-0">Unlike other platforms, we don’t eat into your earnings.</span>
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="xces-card py-8">
+          <DollarSign size={32} className="mx-auto text-xces-blue mb-2" />
+          <h3 className="font-bold text-lg mb-2">0% Commission</h3>
+          <p>No deductions from your food sales—keep everything you earn.</p>
+        </div>
+        <div className="xces-card py-8">
+          <FileText size={32} className="mx-auto text-xces-blue mb-2" />
+          <h3 className="font-bold text-lg mb-2">No Hidden Fees</h3>
+          <p>Transparent pricing, so you always know what you’ll pay.</p>
+        </div>
+        <div className="xces-card py-8">
+          <Users size={32} className="mx-auto text-xces-blue mb-2" />
+          <h3 className="font-bold text-lg mb-2">No Delivery Charge</h3>
+          <p>No added delivery markup for your customers.</p>
+        </div>
+      </div>
     </div>
+  </section>
+);
+
+const WhatYouGet = () => (
+  <section className="section-padding bg-xces-black">
+    <div className="container mx-auto px-4 max-w-5xl text-center">
+      <h2 className="text-3xl md:text-4xl font-bold mb-6">
+        What You Get with <span className="xces-gradient-text">XCES</span>
+      </h2>
+      <div className="mt-2 grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+        <ul className="space-y-6 text-lg">
+          <li>
+            <span className="font-semibold text-xces-blue">1. Access to Local Customer Data</span>
+            <br />
+            <span className="text-gray-300">Know who’s ordering, when, and what they love.</span>
+          </li>
+          <li>
+            <span className="font-semibold text-xces-blue">2. Dedicated Sections</span>
+            <br />
+            <span className="text-gray-300">Separate spaces for Restaurants and Home Chefs to shine.</span>
+          </li>
+          <li>
+            <span className="font-semibold text-xces-blue">3. Free Basic Packaging Material</span>
+            <br />
+            <span className="text-gray-300">We’ve got your first packaging needs covered.</span>
+          </li>
+        </ul>
+        <ul className="space-y-6 text-lg">
+          <li>
+            <span className="font-semibold text-xces-blue">4. Ad Options that Work for You</span>
+            <br />
+            <span className="text-gray-300">Promote your food — without paying high per click commissions.</span>
+          </li>
+          <li>
+            <span className="font-semibold text-xces-blue">5. Your Own Business Growth Team</span>
+            <br />
+            <span className="text-gray-300">We help you grow, not just list.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+);
+
+const WhoCanJoin = () => (
+  <section className="section-padding bg-gradient-to-b from-xces-dark to-xces-black">
+    <div className="container mx-auto px-4 text-center max-w-2xl">
+      <h2 className="text-3xl md:text-4xl font-bold mb-7">Who Can Join?</h2>
+      <div className="flex flex-wrap justify-center gap-4 text-base md:text-lg font-medium">
+        <span className="bg-xces-blue/10 text-xces-blue px-5 py-2 rounded-full">Home Chefs</span>
+        <span className="bg-xces-blue/10 text-xces-blue px-5 py-2 rounded-full">Restaurants</span>
+        <span className="bg-xces-blue/10 text-xces-blue px-5 py-2 rounded-full">Cafés</span>
+        <span className="bg-xces-blue/10 text-xces-blue px-5 py-2 rounded-full">Cloud Kitchens</span>
+        <span className="bg-xces-blue/10 text-xces-blue px-5 py-2 rounded-full">Sweet Shops</span>
+        <span className="bg-xces-blue/10 text-xces-blue px-5 py-2 rounded-full">Food Trucks</span>
+        <span className="bg-xces-blue/10 text-xces-blue px-5 py-2 rounded-full">Ice Cream Parlours</span>
+      </div>
+    </div>
+  </section>
+);
+
+const Pricing = () => (
+  <section className="section-padding bg-xces-black">
+    <div className="container mx-auto px-4 max-w-3xl text-center">
+      <h2 className="text-3xl md:text-4xl font-bold mb-6">How Our <span className="xces-gradient-text">Pricing</span> Works</h2>
+      <div className="bg-xces-dark px-6 py-7 rounded-2xl border border-gray-800 shadow-glow mb-8">
+        <div className="text-left text-lg mb-6">
+          <div className="mb-5">
+            <span className="block font-semibold text-xces-blue mb-2">We charge 0% commission on food. Here’s how it benefits you:</span>
+            <p>You sell a pizza for <span className="font-bold">₹100</span></p>
+            <p>On Zomato/Swiggy, you’d mark it up to <span className="font-bold">₹140–₹150</span> to cover their commission.</p>
+            <p>On XCES, you list it at <span className="font-bold">₹100</span> — and we show the customer <span className="font-bold">₹112</span></p>
+            <p>That extra <span className="font-bold">₹12</span>? It's our commission from customer— <span className="font-bold">not your cost</span>.</p>
+          </div>
+          <div className="mt-8">
+            <span className="text-xces-blue font-bold">Result?</span><br />
+            <span>You earn your full <span className="font-bold">₹100</span></span><br />
+            <span>Customers save money<br />Everyone wins.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const SavingsCalculator = () => {
+  const [revenue, setRevenue] = useState<number | "">("");
+
+  const format = (n: number | "") => n === "" ? "" : n.toLocaleString("en-IN");
+
+  const competitorLoss = revenue === "" ? "" : Math.floor((+revenue) * 0.3);
+  const xcesGain = revenue === "" ? "" : Math.floor((+revenue) * 0.3);
+
+  return (
+    <section className="section-padding bg-gradient-to-b from-xces-dark to-xces-black">
+      <div className="container mx-auto px-4 max-w-lg text-center">
+        <h3 className="text-2xl font-bold mb-5">See the Savings: <span className="xces-gradient-text">XCES vs Others</span></h3>
+        <div className="bg-xces-dark px-6 py-8 rounded-2xl border border-gray-800 shadow-glow mb-8">
+          <label htmlFor="revenue" className="block text-lg font-medium text-gray-200 mb-3">Enter your monthly online revenue:</label>
+          <input
+            id="revenue"
+            type="number"
+            min={0}
+            placeholder="e.g., 100000"
+            className="w-full bg-xces-black border border-xces-blue/40 rounded-lg px-4 py-2 text-xl font-medium text-white mb-6 focus:outline-none focus:ring-2 focus:ring-xces-blue"
+            value={revenue}
+            onChange={e => {
+              const v = e.target.value;
+              setRevenue(v === "" ? "" : Number(v));
+            }}
+          />
+          <div className="flex flex-col gap-3 text-base sm:text-lg">
+            <div className="bg-xces-blue/10 rounded p-3 flex justify-between items-center font-semibold">
+              <span>Other Platforms: -30% (commission loss)</span>
+              <span className="text-red-500 font-bold">
+                {revenue !== "" ? `₹${format(competitorLoss as number)}` : "--"}
+              </span>
+            </div>
+            <div className="bg-xces-blue/10 rounded p-3 flex justify-between items-center font-semibold">
+              <span>With XCES: +30% (commission saved)</span>
+              <span className="text-green-400 font-bold">
+                {revenue !== "" ? `₹${format(xcesGain as number)}` : "--"}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
+
+const Subscription = () => (
+  <section className="py-16 px-4 bg-xces-black relative">
+    <div className="max-w-2xl mx-auto">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          Subscription <span className="xces-gradient-text">Plan</span>
+        </h2>
+      </div>
+      <div className="w-full bg-gradient-to-br from-xces-dark to-black rounded-2xl shadow-lg p-7 relative">
+        <div className="flex items-end gap-2 mb-3">
+          <h3 className="text-4xl sm:text-5xl font-extrabold">₹349</h3>
+          <span className="text-gray-400 mb-1 text-lg">/month</span>
+        </div>
+        <p className="mb-6 text-lg text-gray-300">
+          Instead of commission, we charge a flat ₹349/month.
+        </p>
+        <ul className="space-y-3 mb-7 text-base text-left">
+          <li className="flex items-center">
+            <Check className="text-xces-blue mr-2" size={20} /> Access to XCES’ growing customer base
+          </li>
+          <li className="flex items-center">
+            <Check className="text-xces-blue mr-2" size={20} /> Premium Ads & Promotion Tools
+          </li>
+          <li className="flex items-center">
+            <Check className="text-xces-blue mr-2" size={20} /> Super-fast Delivery Network
+          </li>
+          <li className="flex items-center">
+            <Check className="text-xces-blue mr-2" size={20} /> Instant Payouts
+          </li>
+          <li className="flex items-center">
+            <Check className="text-xces-blue mr-2" size={20} /> Customer Insights
+          </li>
+          <li className="flex items-center">
+            <Check className="text-xces-blue mr-2" size={20} /> Business Growth Support Team
+          </li>
+        </ul>
+        <div className="mb-4 text-xces-blue font-bold">
+          <span className="block mb-1">Bonus:</span>
+          Get 3 months FREE when you join now!<br />
+          <span className="text-sm text-gray-300">And if you don’t receive a single order, we refund your money — no questions asked.</span>
+        </div>
+        <a href="#become-partner" className="block xces-btn mt-4 w-full text-center">Claim Offer</a>
+      </div>
+    </div>
+    <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-xces-blue/5 rounded-full blur-3xl"></div>
+  </section>
+);
+
+const SignupForm = () => {
+  const [form, setForm] = useState({
+    founder: "",
+    brand: "",
+    phone: "",
+    city: "",
+    state: "",
+    ownership: "franchise",
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setForm(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 6000);
+    setForm({
+      founder: "",
+      brand: "",
+      phone: "",
+      city: "",
+      state: "",
+      ownership: "franchise"
+    });
+  };
+
+  return (
+    <section id="become-partner" className="section-padding bg-xces-black">
+      <div className="container mx-auto px-4 max-w-lg">
+        <div className="xces-card p-8">
+          <h3 className="text-2xl font-bold mb-3 text-center">Become an Early Food Partner</h3>
+          <form onSubmit={handleSubmit} className="space-y-5 mt-6">
+            <div>
+              <label htmlFor="founder" className="block text-gray-300 mb-1 font-medium">Founder Name</label>
+              <input id="founder" name="founder" value={form.founder} onChange={handleChange} required className="xces-input" placeholder="Your Name" />
+            </div>
+            <div>
+              <label htmlFor="brand" className="block text-gray-300 mb-1 font-medium">Restaurant/Brand Name</label>
+              <input id="brand" name="brand" value={form.brand} onChange={handleChange} required className="xces-input" placeholder="Business Name" />
+            </div>
+            <div>
+              <label htmlFor="phone" className="block text-gray-300 mb-1 font-medium">Phone Number</label>
+              <input id="phone" name="phone" type="tel" value={form.phone} onChange={handleChange} required className="xces-input" placeholder="Phone" />
+            </div>
+            <div>
+              <label htmlFor="city" className="block text-gray-300 mb-1 font-medium">City</label>
+              <input id="city" name="city" value={form.city} onChange={handleChange} required className="xces-input" placeholder="City" />
+            </div>
+            <div>
+              <label htmlFor="state" className="block text-gray-300 mb-1 font-medium">State</label>
+              <input id="state" name="state" value={form.state} onChange={handleChange} required className="xces-input" placeholder="State" />
+            </div>
+            <div>
+              <label htmlFor="ownership" className="block text-gray-300 mb-1 font-medium">Type</label>
+              <select
+                id="ownership"
+                name="ownership"
+                value={form.ownership}
+                onChange={handleChange}
+                className="xces-input"
+              >
+                <option value="franchise">Franchise</option>
+                <option value="self-owned">Self-owned</option>
+              </select>
+            </div>
+            <button type="submit" className="xces-btn w-full mt-4">Submit Now</button>
+            {submitted && (
+              <div className="text-green-400 mt-4 text-center font-medium">
+                Thank you, we'll contact you soon!
+              </div>
+            )}
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const faqs = [
+  {
+    question: "What is XCES' pricing?",
+    answer: "We charge 0% commission and a flat ₹349/month. Others take 30–40% from each order."
+  },
+  {
+    question: "How can I list on XCES?",
+    answer: "Sign up on the portal, upload your KYC & menu, and go live in 48 hours."
+  },
+  {
+    question: "What are the benefits?",
+    answer: "Higher profits, faster deliveries, free packaging support, and transparent insights."
+  },
+  {
+    question: "How do I receive payments?",
+    answer: "Daily settlements. No holding periods."
+  },
+  {
+    question: "Can home chefs join?",
+    answer: "Absolutely! Register under our Mom’s Magic section."
+  },
+  {
+    question: "Do you provide packaging material?",
+    answer: "Yes, we provide eco-friendly basic packaging at no extra cost."
+  },
+  {
+    question: "How does XCES boost my sales?",
+    answer: "With AI-driven suggestions, better ad placements, and new restaurant visibility."
+  },
+  {
+    question: "How do I access customer insights?",
+    answer:
+      "We share limited analytics like top dishes, timing trends, and repeat orders — without compromising user data."
+  }
+];
+
+const FAQSection = () => (
+  <section id="faq" className="section-padding bg-xces-black">
+    <div className="container mx-auto px-4 max-w-3xl">
+      <div className="text-center mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold mb-2">
+          Frequently Asked <span className="xces-gradient-text">Questions</span>
+        </h2>
+      </div>
+      <div className="divide-y divide-gray-800 rounded-2xl overflow-hidden bg-xces-dark shadow-glow border border-gray-800">
+        {faqs.map((item, idx) => (
+          <details key={idx} className="group p-6">
+            <summary className="cursor-pointer font-semibold text-lg flex items-center justify-between">
+              {item.question}
+              <span className="ml-2 text-xces-blue">{'▼'}</span>
+            </summary>
+            <p className="mt-3 text-gray-300 leading-relaxed">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+      <div className="flex justify-center mt-10">
+        <div className="animate-glow-pulse h-1 w-20 bg-xces-blue/30 rounded-full"></div>
+      </div>
+    </div>
+  </section>
+);
+
+const FoodPartner = () => (
+  <div className="min-h-screen bg-xces-black text-white overflow-x-hidden">
+    <FoodHero />
+    <WhyXCES />
+    <WhatYouGet />
+    <WhoCanJoin />
+    <Pricing />
+    <SavingsCalculator />
+    <Subscription />
+    <SignupForm />
+    <FAQSection />
+    <footer className="bg-xces-dark border-t border-gray-900 pt-10 pb-6">
+      <div className="container mx-auto px-4 flex flex-col sm:flex-row gap-8 items-center sm:justify-between">
+        <div className="flex flex-col items-center sm:items-start">
+          <img src="/uploads/2nd logo-01.png" alt="XCES logo" className="w-16 mb-2" draggable="false" loading="lazy" />
+          <div className="font-semibold text-white text-lg">
+            XCES
+          </div>
+          <div className="text-gray-500 font-light text-sm mb-2">
+            Tez nhi , Taste hain<br />
+            By Avriti International<br />
+            CIN: U74103BR2025PTC073308
+          </div>
+        </div>
+        <div className="mt-3 sm:mt-0 flex flex-col gap-1 text-center sm:text-right text-sm">
+          <div>
+            <span className="font-semibold text-white">Contact info</span>
+            <br />
+            <a href="mailto:contact@xcesnow.in" className="text-xces-blue hover:underline">
+              contact@xcesnow.in
+            </a>
+          </div>
+          <div className="mt-2">
+            <span className="font-semibold text-white">Social links</span>
+            <br />
+            <a
+              href="https://www.instagram.com/xcesindia?igsh=MWRvY2Jla200aDVuag=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xces-blue hover:underline"
+            >
+              Instagram
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+);
 
 export default FoodPartner;
