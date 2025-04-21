@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from "react";
-import { Calculator, TrendingUp, TrendingDown } from "lucide-react";
+import { Calculator, TrendingUp, TrendingDown, Percent } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
 
@@ -10,7 +10,6 @@ const SavingsCalculator = () => {
   const [isAnimated, setIsAnimated] = useState(false);
 
   useEffect(() => {
-    // Trigger animation after component mounts
     setIsAnimated(true);
   }, []);
 
@@ -40,17 +39,17 @@ const SavingsCalculator = () => {
             See the <span className="xces-gradient-text">Savings</span>
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Calculate how much more you can earn with XCES compared to traditional food delivery platforms.
+            Instantly estimate how much more you can earn by switching to XCES.
           </p>
         </div>
 
-        <div className="bg-gradient-to-br from-xces-dark to-black border border-xces-blue/20 rounded-2xl shadow-glow overflow-hidden">
+        <div className="bg-gradient-to-br from-xces-blue/10 to-xces-dark border border-xces-blue/20 rounded-2xl shadow-glow overflow-hidden">
           <div className="p-6 sm:p-8">
             <div className="flex items-center gap-4 mb-8">
-              <div className="h-12 w-12 rounded-full bg-xces-blue/20 flex items-center justify-center">
+              <div className="h-12 w-12 rounded-full bg-xces-blue/20 flex items-center justify-center shadow-glow animate-float-slow">
                 <Calculator className="text-xces-blue" size={24} />
               </div>
-              <h3 className="text-2xl font-bold">Savings Calculator</h3>
+              <h3 className="text-2xl font-bold text-xces-blue">Savings Calculator</h3>
             </div>
 
             <div className="space-y-6">
@@ -59,7 +58,7 @@ const SavingsCalculator = () => {
                   Your monthly online revenue
                 </label>
                 <div className="flex items-center space-x-2">
-                  <span className="text-xl font-medium">₹</span>
+                  <span className="text-xl font-medium text-xces-blue">₹</span>
                   <Input
                     id="revenue"
                     type="number"
@@ -67,7 +66,7 @@ const SavingsCalculator = () => {
                     max={500000}
                     value={revenue}
                     onChange={handleInputChange}
-                    className="bg-xces-black border border-xces-blue/40 text-xl font-medium text-white focus:border-xces-blue focus:ring-1 focus:ring-xces-blue/50"
+                    className="bg-xces-black border border-xces-blue/40 text-xl font-medium text-white focus:border-xces-blue focus:ring-1 focus:ring-xces-blue/50 w-52"
                   />
                 </div>
               </div>
@@ -88,38 +87,49 @@ const SavingsCalculator = () => {
               </div>
 
               <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className={`bg-red-900/10 border border-red-500/20 rounded-xl p-5 transition-all duration-700 transform ${isAnimated ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-                  <div className="flex justify-between items-start mb-4">
-                    <h4 className="font-medium text-gray-300">Other Platforms</h4>
-                    <div className="flex items-center bg-red-500/20 text-red-400 text-sm px-2 py-1 rounded">
-                      <TrendingDown size={16} className="mr-1" />
-                      <span>-30%</span>
-                    </div>
+                {/* Competitor Loss */}
+                <div className={`bg-red-900/15 border-l-4 border-red-400/70 rounded-xl p-5 transition-all duration-700 transform ${isAnimated ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} shadow-lg`}>
+                  <div className="flex items-center mb-2 gap-2">
+                    <TrendingDown size={22} className="text-red-400" />
+                    <span className="font-semibold text-gray-200">Other Platforms</span>
                   </div>
-                  <div className="text-3xl font-bold text-red-400 flex items-center gap-1">
-                    <span>-₹{format(competitorLoss)}</span>
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-medium text-red-400 flex items-center gap-1 text-3xl">
+                      -₹{format(competitorLoss)}
+                      <Percent className="inline" size={16} />
+                    </span>
+                    <span className="text-xs text-gray-400">Lost to commission</span>
                   </div>
-                  <p className="mt-2 text-sm text-gray-400">Lost to commission fees</p>
+                  <div className="mt-2 text-xs text-gray-400">
+                    Assumes 30% avg. platform fee
+                  </div>
                 </div>
 
-                <div className={`bg-xces-blue/10 border border-xces-blue/20 rounded-xl p-5 transition-all duration-700 transform ${isAnimated ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} delay-150`}>
-                  <div className="flex justify-between items-start mb-4">
-                    <h4 className="font-medium text-gray-300">With XCES</h4>
-                    <div className="flex items-center bg-xces-blue/20 text-xces-blue text-sm px-2 py-1 rounded">
-                      <TrendingUp size={16} className="mr-1" />
-                      <span>+30%</span>
-                    </div>
+                {/* XCES Gain */}
+                <div className={`bg-xces-blue/15 border-l-4 border-xces-blue/80 rounded-xl p-5 transition-all duration-700 transform ${isAnimated ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} delay-150 shadow-lg`}>
+                  <div className="flex items-center mb-2 gap-2">
+                    <TrendingUp size={22} className="text-xces-blue" />
+                    <span className="font-semibold text-gray-200">With XCES</span>
                   </div>
-                  <div className="text-3xl font-bold text-xces-blue flex items-center gap-1">
-                    <span>+₹{format(xcesGain)}</span>
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-medium text-xces-blue flex items-center gap-1 text-3xl">
+                      +₹{format(xcesGain)}
+                      <Percent className="inline" size={16} />
+                    </span>
+                    <span className="text-xs text-gray-400">Additional profit</span>
                   </div>
-                  <p className="mt-2 text-sm text-gray-400">Additional profit</p>
+                  <div className="mt-2 text-xs text-gray-400">
+                    No commission—just flat monthly fee
+                  </div>
                 </div>
               </div>
 
-              <div className="mt-4 p-4 bg-gradient-to-r from-xces-blue/5 to-transparent border-l-4 border-xces-blue rounded text-sm text-gray-300">
-                <p className="font-medium">Monthly Savings Calculation</p>
-                <p className="mt-1">Based on typical 30% commission charged by other food delivery platforms. Your actual savings may be higher depending on your business model and order volume.</p>
+              <div className="mt-4 p-4 bg-xces-blue/5 border-l-4 border-xces-blue rounded text-xs text-gray-300">
+                <p className="font-medium mb-1">How calculation works:</p>
+                <p>
+                  Calculated with a typical 30% commission charged by major delivery apps.<br/>
+                  Your actual savings may vary by business and volume, but XCES always lets you keep more!
+                </p>
               </div>
             </div>
           </div>
