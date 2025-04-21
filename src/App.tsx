@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import ComingSoon from "./pages/ComingSoon";
+import FoodPartner from "./pages/FoodPartner";
 
 const queryClient = new QueryClient();
 
@@ -17,9 +18,10 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index  />} />
-          <Route path="/delivery-partner" element={<Index />} />
-          <Route path="/food-partner" element={<ComingSoon />} />
-          <Route path="/about" element={<ComingSoon />} />          <Route path="*" element={<NotFound />} />
+          <Route path="/delivery-partner" element={<ComingSoon />} />
+          <Route path="/food-partner" element={<FoodPartner />} />
+          <Route path="/about" element={<ComingSoon />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
