@@ -41,10 +41,10 @@ const Join = () => {
       <div className="max-w-md mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
-            Become a Delivery <span className="text-blue-500">Partner</span>
+            Start Your <span className="text-blue-500">Journey</span> Today
           </h2>
           <p className="text-lg text-gray-400">
-            Join our network and start earning today
+            Join thousands of successful restaurants and home chefs on XCES
           </p>
         </div>
 
@@ -143,7 +143,7 @@ const Join = () => {
             type="submit" 
             className="w-full bg-gradient-to-r from-blue-600 to-blue-500 text-white py-3.5 rounded-xl font-medium hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-lg shadow-blue-500/20"
           >
-            Register Now
+            Get Started Now
           </button>
         </form>
       </div>
