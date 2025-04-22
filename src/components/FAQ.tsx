@@ -1,7 +1,5 @@
-
-import { useState } from "react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { ChevronDown } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface FAQItem {
   question: string;
@@ -51,44 +49,34 @@ const faqData: FAQItem[] = [
 ];
 
 const FAQ = () => {
-  const [openItem, setOpenItem] = useState<string | null>(null);
-
   return (
-    <section id="faq" className="section-padding bg-xces-black">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Frequently Asked <span className="xces-gradient-text">Questions</span>
+    <section id="faq" className="py-16 px-4 bg-[#111]">
+      <div className="max-w-2xl mx-auto">
+        <div className="text-left mb-8">
+          <h2 className="text-2xl font-bold mb-2">
+            Frequently Asked <span className="text-blue-500">Questions</span>
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-400">
             Everything you need to know about becoming an XCES delivery partner
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-xces-dark rounded-2xl border border-gray-800 overflow-hidden shadow-glow-sm hover:shadow-glow transition-all duration-500">
-            <Accordion type="single" collapsible className="w-full">
-              {faqData.map((faq, index) => (
-                <AccordionItem 
-                  key={index} 
-                  value={`item-${index}`}
-                  className="border-b border-gray-800 last:border-b-0 overflow-hidden group"
-                >
-                  <AccordionTrigger className="py-5 px-6 text-left hover:no-underline group-hover:text-xces-blue transition-colors duration-300">
-                    <span className="font-medium text-lg group-hover:text-xces-blue transition-colors duration-300">{faq.question}</span>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-5 text-gray-400">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        </div>
-        
-        <div className="flex justify-center mt-10">
-          <div className="animate-glow-pulse h-1 w-20 bg-xces-blue/30 rounded-full"></div>
-        </div>
+        <Accordion type="single" collapsible className="space-y-2">
+          {faqData.map((faq, index) => (
+            <AccordionItem 
+              key={index} 
+              value={`item-${index}`}
+              className="border border-gray-800 rounded-lg overflow-hidden bg-[#1a1a1a]"
+            >
+              <AccordionTrigger className="px-4 py-3 text-left hover:no-underline">
+                <span className="text-gray-200 text-sm font-medium">{faq.question}</span>
+              </AccordionTrigger>
+              <AccordionContent className="px-4 pb-4">
+                <p className="text-gray-400 text-sm">{faq.answer}</p>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   );
