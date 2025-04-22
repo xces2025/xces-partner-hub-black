@@ -1,51 +1,38 @@
-
 import { ChevronDown } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-interface FAQItem {
-  question: string;
-  answer: string | React.ReactNode;
-}
-
-const faqData: FAQItem[] = [
+const faqData = [
   {
-    question: "How does XCES ensure better earnings for delivery partners?",
-    answer: "XCES pays delivery partners 8% of the order value + ₹14 base pay + ₹8 per km, which is 2× higher than competitors."
+    question: "What is XCES' pricing?",
+    answer: "We charge 0% commission and a flat ₹349/month. Others take 30–40% from each order."
   },
   {
-    question: "Are there any joining fees to become a delivery partner?",
-    answer: "No, currently joining XCES as a delivery partner is completely free."
+    question: "How can I list on XCES?",
+    answer: "Sign up on the portal, upload your KYC & menu, and go live in 48 hours."
   },
   {
-    question: "What are the working hours and flexibility?",
-    answer: "You can choose your own working hours. Whether full-time or part-time, you decide when to go online and accept orders."
+    question: "What are the benefits?",
+    answer: "Higher profits, faster deliveries, free packaging support, and transparent insights."
   },
   {
-    question: "What additional benefits does XCES provide?",
-    answer: (
-      <ul className="list-disc pl-5 space-y-2 mt-2">
-        <li>Free health checkups and insurance coverage</li>
-        <li>Vehicle maintenance discounts</li>
-        <li>Learning courses for skill development</li>
-        <li>Access to XCES Service Hubs for rest, food, and essentials</li>
-      </ul>
-    )
+    question: "How do I receive payments?",
+    answer: "Daily settlements. No holding periods."
   },
   {
-    question: "How do I receive my earnings?",
-    answer: "Payouts are made daily or weekly to your bank account. You can also opt for instant withdrawal via the XCES app."
+    question: "Can home chefs join?",
+    answer: "Absolutely! Register under our Mom's Magic section."
   },
   {
-    question: "What are XCES Service Hubs?",
-    answer: "XCES Service Hubs are rest points with food, phone charging, and washrooms, ensuring comfort and convenience for delivery partners."
+    question: "Do you provide packaging material?",
+    answer: "Yes, we provide eco-friendly basic packaging at no extra cost."
   },
   {
-    question: "Do I need a specific type of vehicle to join?",
-    answer: "No, you can deliver using a bike, scooter, or bicycle."
+    question: "How does XCES boost my sales?",
+    answer: "With AI-driven suggestions, better ad placements, and new restaurant visibility."
   },
   {
-    question: "How do I sign up as a delivery partner?",
-    answer: "Simply download the XCES Delivery Partner app, submit your KYC documents, and start accepting orders once approved."
+    question: "How do I access customer insights?",
+    answer: "We share limited analytics like top dishes, timing trends, and repeat orders — without compromising user data."
   }
 ];
 

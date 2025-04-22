@@ -13,15 +13,12 @@ const FoodHero = () => (
         draggable="false"
       />
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-        Partner With <span className="xces-gradient-text">XCES</span> For Success
+        Serve More, <span className="xces-gradient-text">Earn More</span> with XCES
       </h1>
       <p className="text-xl md:text-2xl mb-3 font-medium text-xces-blue">
-        Zero Commission. Maximum Profit.
+        Save up to ₹1,00,000 every month
       </p>
-      <p className="text-lg text-gray-200 mb-6">
-        Keep <span className="font-bold text-white">100%</span> of your food sales revenue
-      </p>
-      <div className="flex flex-col mt-2 gap-4 sm:flex-row justify-center">
+      <div className="flex flex-col mt-8 gap-4 sm:flex-row justify-center">
         <a href="#become-partner" className="xces-btn text-base font-semibold">
           Join as Food Partner <ArrowRight className="inline-block ml-2" size={18} />
         </a>
