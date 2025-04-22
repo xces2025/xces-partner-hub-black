@@ -1,12 +1,20 @@
 
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
-import {Link} from 'react-router-dom'
+import { Menu, X, Moon, Sun } from "lucide-react";
+import { Link } from 'react-router-dom'
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    document.documentElement.classList.toggle('dark');
   };
 
   return (
@@ -14,7 +22,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-          <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img 
                 src="/uploads/nvavlogo.png" 
                 alt="XCES Logo" 
@@ -23,7 +31,7 @@ const Header = () => {
             </Link>
             <div className="hidden md:block ml-10">
               <nav className="flex space-x-8">
-              <Link to="/" className="text-gray-300 hover:text-white transition-colors">
+                <Link to="/" className="text-gray-300 hover:text-white transition-colors">
                   Home
                 </Link>
                 <Link to="/delivery-partner" className="text-gray-300 hover:text-white transition-colors">
@@ -39,19 +47,43 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-gray-800 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-5 w-5 text-gray-300" />
+              ) : (
+                <Moon className="h-5 w-5 text-gray-300" />
+              )}
+            </button>
             <a href="#faq" className="xces-btn">
               FAQ
             </a>
           </div>
 
-          <button 
-            className="md:hidden text-white"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-4">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-gray-800 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-5 w-5 text-gray-300" />
+              ) : (
+                <Moon className="h-5 w-5 text-gray-300" />
+              )}
+            </button>
+            <button 
+              className="text-white"
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
