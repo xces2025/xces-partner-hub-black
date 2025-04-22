@@ -1,3 +1,4 @@
+
 import { ChevronDown } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
@@ -50,29 +51,29 @@ const faqData: FAQItem[] = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-16 px-4 bg-[#111]">
-      <div className="max-w-2xl mx-auto">
-        <div className="text-left mb-8">
-          <h2 className="text-2xl font-bold mb-2">
+    <section id="faq" className="py-16 px-4 bg-gradient-to-br from-[#111] to-[#1a1a1a]">
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
             Frequently Asked <span className="text-blue-500">Questions</span>
           </h2>
-          <p className="text-gray-400">
+          <p className="text-lg text-gray-400">
             Everything you need to know about becoming an XCES delivery partner
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="space-y-2">
+        <Accordion type="single" collapsible className="space-y-3">
           {faqData.map((faq, index) => (
             <AccordionItem 
               key={index} 
               value={`item-${index}`}
-              className="border border-gray-800 rounded-lg overflow-hidden bg-[#1a1a1a]"
+              className="border border-gray-800/50 rounded-xl overflow-hidden bg-gradient-to-br from-[#1a1a1a] to-[#222] hover:border-blue-500/30 transition-all duration-300"
             >
-              <AccordionTrigger className="px-4 py-3 text-left hover:no-underline">
-                <span className="text-gray-200 text-sm font-medium">{faq.question}</span>
+              <AccordionTrigger className="px-6 py-4 text-left hover:no-underline">
+                <span className="text-gray-200 text-base font-medium">{faq.question}</span>
               </AccordionTrigger>
-              <AccordionContent className="px-4 pb-4">
-                <p className="text-gray-400 text-sm">{faq.answer}</p>
+              <AccordionContent className="px-6 pb-4">
+                <div className="text-gray-400 text-base leading-relaxed">{faq.answer}</div>
               </AccordionContent>
             </AccordionItem>
           ))}
