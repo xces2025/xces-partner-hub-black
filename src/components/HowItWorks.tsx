@@ -1,27 +1,26 @@
-
-import { Check, ShoppingBag, ThumbsUp, MapPin, CreditCard } from "lucide-react";
+import { Database, Users, Package, Zap } from "lucide-react";
 
 const HowItWorks = () => {
   const steps = [
     {
-      icon: <ShoppingBag className="w-12 h-12 text-xces-blue mb-4" />,
-      title: "Get Order",
-      description: "Receive food order requests from customers"
+      icon: <Database className="w-12 h-12 text-xces-blue mb-4" />,
+      title: "Access to Local Customer Data",
+      description: "Know who's ordering, when, and what they love"
     },
     {
-      icon: <ThumbsUp className="w-12 h-12 text-xces-blue mb-4" />,
-      title: "Accept & Pick-up",
-      description: "Accept the order and pick it up from the restaurant or home chef"
+      icon: <Users className="w-12 h-12 text-xces-blue mb-4" />,
+      title: "Dedicated Sections",
+      description: "Separate spaces for Restaurants and Home Chefs to shine"
     },
     {
-      icon: <MapPin className="w-12 h-12 text-xces-blue mb-4" />,
-      title: "Drop to Customer",
-      description: "Deliver the food to the customer's location"
+      icon: <Package className="w-12 h-12 text-xces-blue mb-4" />,
+      title: "Free Basic Packaging Material",
+      description: "We've got your first packaging needs covered"
     },
     {
-      icon: <CreditCard className="w-12 h-12 text-xces-blue mb-4" />,
-      title: "Receive Payment",
-      description: "Get payment directly in the partner app"
+      icon: <Zap className="w-12 h-12 text-xces-blue mb-4" />,
+      title: "Business Growth Team",
+      description: "We help you grow, not just list"
     }
   ];
 
@@ -29,9 +28,9 @@ const HowItWorks = () => {
     <section id="how-it-works" className="section-padding relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">How It <span className="xces-gradient-text">Works</span></h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">What You Get with <span className="xces-gradient-text">XCES</span></h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Our simple 4-step process makes food delivery straightforward and rewarding
+            Everything you need to grow your food business
           </p>
         </div>
         
@@ -51,7 +50,6 @@ const HowItWorks = () => {
         </div>
       </div>
       
-      {/* Background elements */}
       <div className="absolute -top-32 -left-32 w-96 h-96 bg-xces-blue/5 rounded-full blur-3xl"></div>
     </section>
   );
