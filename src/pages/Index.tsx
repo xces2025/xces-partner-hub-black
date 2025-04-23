@@ -9,6 +9,7 @@ import Subscription from "@/components/Subscription";
 import FAQ from "@/components/FAQ";
 import Join from "@/components/Join";
 import Footer from "@/components/Footer";
+import WhoCanJoin from "@/components/WhoCanJoin";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
       <Hero />
       <WhyXces />
       <HowItWorks />
+      <WhoCanJoin />
       <Benefits />
       <Payout />
       <Subscription />
