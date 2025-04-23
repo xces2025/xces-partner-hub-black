@@ -12,7 +12,7 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-xces-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-white dark:bg-xces-black text-gray-800 dark:text-white overflow-x-hidden transition-colors duration-300">
       <Header />
       <Hero />
       <WhyXces />
