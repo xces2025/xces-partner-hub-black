@@ -1,24 +1,18 @@
-
 import { useState } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { useTheme } from "@/contexts/ThemeContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const { theme, toggleTheme } = useTheme();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    document.documentElement.classList.toggle('dark');
-  };
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-xces-black/90 backdrop-blur-md border-b border-gray-800">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-xces-black/90 dark:bg-xces-black/90 backdrop-blur-md border-b border-gray-800">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
@@ -87,7 +81,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden bg-xces-dark border-t border-gray-800 animate-accordion-down">
           <div className="container mx-auto px-4 py-4">
